@@ -16,6 +16,6 @@ public class Docente {
 	}
 	public String toString()
 	{
-		return ("DOCENTE = "+nome);
+		return (nome);
 	}
 }

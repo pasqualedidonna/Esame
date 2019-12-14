@@ -23,6 +23,9 @@ public class Appello {
 		public void setStato(boolean _stato) {
 			chiuso = _stato;	
 		}
+		public boolean isAperto() {
+			return chiuso;
+		}
 		public ArrayList<Studente> getStudentiPrenotati(){
 			return studenti_prenotati;
 		}
