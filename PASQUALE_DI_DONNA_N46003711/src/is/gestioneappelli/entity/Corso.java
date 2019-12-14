@@ -39,7 +39,11 @@ public class Corso {
 	public void setAppello(Appello _a) {
 		lista_appelli.add(_a);
 	}
+	public ArrayList<Appello> getAppello()
+	{
+		return lista_appelli;
+	}
 	public String toString() {
-		return "\nCorso:\nNome corso: "+nome_corso+"\n"+"Numero Cfu: "+cfu+"\nDocente: "+d.getNome();
+		return "\nCorso:\nNome corso: "+nome_corso+"\nDocente: "+d.getNome()+"\nNumero CFU: "+cfu;
 	}
 	}

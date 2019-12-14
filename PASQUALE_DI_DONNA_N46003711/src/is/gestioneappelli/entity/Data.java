@@ -23,4 +23,5 @@ public class Data {
 	public LocalDate getData() {
 		return this.data;
 	}
+	
 }

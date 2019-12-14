@@ -14,4 +14,8 @@ public class Docente {
 	public String getNome() {
 		return nome;
 	}
+	public String toString()
+	{
+		return ("DOCENTE = "+nome);
+	}
 }
