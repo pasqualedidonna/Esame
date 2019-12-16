@@ -30,29 +30,33 @@ public class GestioneAppelli {
 		if (lista_corsi.contains(_c) && _a.isAperto())
 			_a.setChiuso(true);
 	}
-	
-public void prenotazioneAppello(Studente s, Appello a, Corso c) {
-		
-		if(lista_corsi.contains(c) && c.ricercaAppello(a) && a.isAperto() && !a.ricercaStudente(s)) {
-			for(Appello a1: c.getAppello()) {
-				if(a1.ricercaStudente(s) && a1.isAperto()) {
-					System.out.println("Non puoi prenotarti se sei già prenotato a un appello aperto dello stesso corso! ");
-					
-				}				
-				else {
-					a.addStudente(s);
-				}
-				break;
-			}	
-		}
-		else if(lista_corsi.contains(c) && c.ricercaAppello(a) && !a.isAperto()&& a.ricercaStudente(s)) {
-			System.out.println("Appello chiuso!\n");
-		}
-		
+	public void prenotazioneAppello(Studente s, Appello a, Corso c) {
+	if(controlloPrenotazione1(s,a,c)){
+		System.out.println("Appello chiuso");
 	}
-	
-	
-	
+	else if(controlloPrenotazione2(s,a,c)){
+		if(!c.ricercaStudenti(s)){
+			a.addStudente(s);		
+			}		
+	}
+	else{
+		System.out.println("Studente già prenotato ad appello non concluso dello stesso esame");
+		}
+}
+	public boolean controlloPrenotazione1(Studente s, Appello a, Corso c) {
+	boolean res=false;
+	if(lista_corsi.contains(c) && c.ricercaAppello(a) && !a.isAperto()) {
+	res= true;
+	}
+	return res;
+}
+	public boolean controlloPrenotazione2(Studente s, Appello a, Corso c) {
+	boolean res=false;
+	if(lista_corsi.contains(c) && c.ricercaAppello(a) && a.isAperto()){
+		res=true;
+	}
+	return res;
+}
 	public void visualizzaPrenotati(Appello a) {
 		ArrayList<Studente> lista_studenti_prenotati = new ArrayList<>(a.getStudentiPrenotati());
 	
@@ -64,7 +68,6 @@ public void prenotazioneAppello(Studente s, Appello a, Corso c) {
 			for(Iterator <Studente> i= lista_studenti_prenotati.iterator();i.hasNext();) 	
 				System.out.println(i.next());}
 	}
-	
 	public String Stampa(Appello _appello,Corso _corso){
 	ArrayList<Appello> lista_appelli = new ArrayList<>();
 	StringBuffer buf = new StringBuffer();
@@ -84,7 +87,6 @@ public void prenotazioneAppello(Studente s, Appello a, Corso c) {
 	}
 	return buf.toString();
 }
-	
 	public void stampaAppelliPerCorso(Corso c) {
 		if (lista_corsi.contains(c)) {
 			System.out.println("Gli appelli per il corso -> " +c.getNome() +"  :\n");

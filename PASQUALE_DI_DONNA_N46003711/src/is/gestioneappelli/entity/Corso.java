@@ -49,6 +49,14 @@ public class Corso {
 			find=true;}
 		return find;
 	}
+	public boolean ricercaStudenti(Studente s) {
+		boolean find= false;
+		for(Appello a: lista_appelli) {
+		if(a.ricercaStudente(s)&& a.isAperto()) 
+			find=true;
+		}
+		return find;
+	}
 	public String toString() {
 		return "\nCorso:\nNome corso: "+nome_corso+"\nDocente: "+d.getNome()+"\nNumero CFU: "+cfu;
 	}

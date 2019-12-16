@@ -78,7 +78,6 @@ public class GestioneAppelliTesting {
 		
 		assertEquals(2,a1.getNumPartecipanti());
 	}
-	
 	@Test
 	public void test5() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -93,7 +92,6 @@ public class GestioneAppelliTesting {
 		
 		assertEquals(1,a1.getNumPartecipanti());
 	}
-	
 	@Test
 	public void test6() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -119,7 +117,6 @@ public class GestioneAppelliTesting {
 		assertEquals(3,a1.getNumPartecipanti());
 		assertEquals(2,a2.getNumPartecipanti());
 	}
-	
 	@Test
 	public void test7() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -181,7 +178,6 @@ public class GestioneAppelliTesting {
 		assertEquals(3, a2.getNumPartecipanti());
 		
 	}
-	
 	@Test
 	public void test9() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -198,7 +194,6 @@ public class GestioneAppelliTesting {
 		assertEquals(0, a1.getNumPartecipanti());
 		
 	}
-	
 	@Test
 	public void test10() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -216,7 +211,6 @@ public class GestioneAppelliTesting {
 		
 		assertEquals(1, a1.getNumPartecipanti());	
 	}
-	
 	@Test
 	public void test11() {
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
@@ -267,6 +261,28 @@ public class GestioneAppelliTesting {
 		assertEquals(0, a3.getNumPartecipanti());
 		assertEquals(2, a2.getNumPartecipanti());
 		assertEquals(0, a4.getNumPartecipanti());
+	}
+	@Test
+	public void test13() {
+		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
 		
+		Corso c1= g.creaCorso("corso1", 1, d);
+		
+		Data d1= new Data(LocalDate.of(2019, 10, 18), Sede.AULA, TipoProva.SCRITTA);
+		Data d2= new Data(LocalDate.of(2019, 11, 18), Sede.AULA, TipoProva.SCRITTA);
+		Data d3= new Data(LocalDate.of(2019, 12, 18), Sede.AULA, TipoProva.SCRITTA);
+		
+		Appello a1= g.creaAppello(c1, d1);
+		Appello a2= g.creaAppello(c1, d2);
+		Appello a3= g.creaAppello(c1, d3);
+		
+		g.chiudiAppello(c1, a1);
+		g.prenotazioneAppello(s1, a2, c1);  
+		g.chiudiAppello(c1, a2);
+		g.prenotazioneAppello(s1, a3, c1);
+	
+		assertEquals(0, a1.getNumPartecipanti());
+		assertEquals(1, a2.getNumPartecipanti());
+		assertEquals(1, a3.getNumPartecipanti());	
 	}
 }
