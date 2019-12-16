@@ -295,14 +295,13 @@ public class GestioneAppelliTesting {
 		
 		Data d1= new Data(null, Sede.AULA, TipoProva.SCRITTA);
 		
-		
 		Appello a1= g.creaAppello(c1, d1);
 		
 		
 		
 		g.prenotazioneAppello(s1, a1, c1);
 	
-		assertEquals(1, a1.getNumPartecipanti());
+		assertEquals(0, a1.getNumPartecipanti());
 		
 	}
 }

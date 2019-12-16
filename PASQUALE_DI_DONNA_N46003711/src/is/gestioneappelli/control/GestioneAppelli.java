@@ -14,9 +14,17 @@ public class GestioneAppelli {
 		return c;
 	}
 	public Appello creaAppello(Corso _c, Data _d) {
-		Appello a = new Appello(_d);
+		Appello a = new Appello();
+		if(_d.getData()!=null) {
+		Appello a1 = new Appello(_d);
 		if (lista_corsi.contains(_c) && !_d.equals(null)) {
-		_c.setAppello(a);
+		_c.setAppello(a1);
+		}
+		return a1;
+		}
+		else
+		{
+			System.out.println("no data");
 		}
 		return a;
 	}
