@@ -43,7 +43,7 @@ public class Studente {
 		return pin;
 	}
 	public String toString() {
-		return "Studente:\nNome: "+nome+" \nCognome: "+cognome+"\nMatricola: "+matricola+"\n";
+		return "Nome: "+nome+" Cognome: "+cognome+" Matricola: "+matricola+"\n";
 	}
 	
 }

@@ -43,6 +43,12 @@ public class Corso {
 	{
 		return lista_appelli;
 	}
+	public boolean ricercaAppello(Appello a) {
+		boolean find= false;
+		if(lista_appelli.contains(a)) {
+			find=true;}
+		return find;
+	}
 	public String toString() {
 		return "\nCorso:\nNome corso: "+nome_corso+"\nDocente: "+d.getNome()+"\nNumero CFU: "+cfu;
 	}
