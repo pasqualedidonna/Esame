@@ -286,4 +286,23 @@ public class GestioneAppelliTesting {
 		assertEquals(1, a2.getNumPartecipanti());
 		assertEquals(1, a3.getNumPartecipanti());	
 	}
+	@Test
+	public void test14() {
+		
+		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
+		
+		Corso c1= g.creaCorso("corso1", 1, d);
+		
+		Data d1= new Data(null, Sede.AULA, TipoProva.SCRITTA);
+		
+		
+		Appello a1= g.creaAppello(c1, d1);
+		
+		
+		
+		g.prenotazioneAppello(s1, a1, c1);
+	
+		assertEquals(1, a1.getNumPartecipanti());
+		
+	}
 }

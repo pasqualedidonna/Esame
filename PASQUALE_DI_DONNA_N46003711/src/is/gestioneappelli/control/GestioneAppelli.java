@@ -15,7 +15,7 @@ public class GestioneAppelli {
 	}
 	public Appello creaAppello(Corso _c, Data _d) {
 		Appello a = new Appello(_d);
-		if (lista_corsi.contains(_c)) {
+		if (lista_corsi.contains(_c) && !_d.equals(null)) {
 		_c.setAppello(a);
 		}
 		return a;
