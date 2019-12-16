@@ -1,4 +1,5 @@
-package Test;
+package is.gestioneappelli.test;
+
 
 import static org.junit.Assert.*;
 
