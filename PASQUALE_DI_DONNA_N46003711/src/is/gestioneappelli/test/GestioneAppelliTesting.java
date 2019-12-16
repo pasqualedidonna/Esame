@@ -264,6 +264,7 @@ public class GestioneAppelliTesting {
 	}
 	@Test
 	public void test13() {
+		//il test mi ha permesso di scovare bug in PrentazioneAppello -> fixato
 		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
 		
 		Corso c1= g.creaCorso("corso1", 1, d);
