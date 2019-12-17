@@ -297,8 +297,6 @@ public class GestioneAppelliTesting {
 		
 		g.prenotazioneAppello(s1, a1, c1);
 		
-		assertEquals(0, a1.getNumPartecipanti());
-		
+		assertEquals(0, a1.getNumPartecipanti());	
 	}
-	
 }

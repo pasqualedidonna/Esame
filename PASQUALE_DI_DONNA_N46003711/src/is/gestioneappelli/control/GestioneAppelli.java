@@ -20,8 +20,10 @@ public class GestioneAppelli {
 		System.out.println("ERRORE: APPELLO SENZA DATA");
 		}
 		else {
-		if (lista_corsi.contains(_c)) 
+		if (lista_corsi.contains(_c)) {
+			a.addData(_d);
 		_c.setAppello(a);
+		}
 		}
 		return a;
 	}
