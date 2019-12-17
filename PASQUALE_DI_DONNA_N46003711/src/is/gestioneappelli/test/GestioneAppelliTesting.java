@@ -293,15 +293,27 @@ public class GestioneAppelliTesting {
 		
 		Corso c1= g.creaCorso("corso1", 1, d);
 		
-		Data d1= new Data(null, Sede.AULA, TipoProva.SCRITTA);
-		
-		Appello a1= g.creaAppello(c1, d1);
-		
-		
+		Appello a1= g.creaAppello(c1, null);
 		
 		g.prenotazioneAppello(s1, a1, c1);
-	
+		
 		assertEquals(0, a1.getNumPartecipanti());
+		
+	}@Test
+public void test15() {
+		
+		Studente s1=new Studente("NomeStudente1","CognStudente1","matricola1",1);
+		
+		Corso c1= g.creaCorso("corso1", 1, d);
+		
+		Appello a1= g.creaAppello(c1, null);
+		Data d1= new Data(LocalDate.of(2019, 10, 18), Sede.AULA, TipoProva.SCRITTA);
+		
+		g.prenotazioneAppello(s1, a1, c1);
+		a1.addData(d1);
+		g.prenotazioneAppello(s1, a1, c1);
+		
+		assertEquals(1, a1.getNumPartecipanti());
 		
 	}
 }

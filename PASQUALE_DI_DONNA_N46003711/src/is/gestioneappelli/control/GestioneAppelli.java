@@ -13,7 +13,7 @@ public class GestioneAppelli {
 		lista_corsi.add(c);
 		return c;
 	}
-	public Appello creaAppello(Corso _c, Data _d) {
+	/*public Appello creaAppello(Corso _c, Data _d) {
 		Appello a = new Appello();
 		if(_d.getData()!=null) {
 		Appello a1 = new Appello(_d);
@@ -27,6 +27,31 @@ public class GestioneAppelli {
 			System.out.println("no data");
 		}
 		return a;
+	}*/
+	/*public Appello creaAppello(Corso _c, Data _d) {
+		Appello a = new Appello();
+		if (lista_corsi.contains(_c)&& !_d.equals(null))  
+		_c.setAppello(a);
+		return a;
+	}*/
+	public Appello creaAppello(Corso _c, Data _d) {
+		Appello a = new Appello();
+		if(controllaCreazioneAppello(_c,_d)) {
+		System.out.println("ERRORE: APPELLO SENZA DATA");
+		}
+		else {
+		if (lista_corsi.contains(_c)) 
+		_c.setAppello(a);
+		}
+		return a;
+	}
+	
+	
+	public boolean controllaCreazioneAppello(Corso _c, Data _d) {
+		boolean res = false;
+		if(_d==null)
+			res=true;
+		return res;
 	}
 	public void visualizzaCorsi(){
 		

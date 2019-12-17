@@ -38,6 +38,12 @@ public class Appello {
 		public int getNumPartecipanti() {
 			return studenti_prenotati.size();
 		}
+		public boolean ricercaData(Data _d) {
+			boolean find=false;
+			if (date.contains(_d)) {
+				find=true;}
+	return find;
+		}
 		public boolean ricercaStudente(Studente _s) {
 			boolean find=false;
 					if (studenti_prenotati.contains(_s)) {
